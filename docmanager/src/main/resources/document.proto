@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_package = "com.mcz.docmanager.grpc";
+
+service document{
+    rpc store(StoreRequest)  returns (APIResponse);
+    rpc update(UpdateRequest)  returns (APIResponse);
+}
+
+message StoreRequest{
+       string document = 1;
+}
+
+message UpdateRequest{
+       string id = 1;
+       string document = 2;
+}
+
+
+message APIResponse{
+      string responseMessage = 1;
+      int32  responseCode = 2;
+}
+
+message Empty{
+}
